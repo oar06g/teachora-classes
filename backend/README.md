@@ -2,6 +2,8 @@
 
 ##  API Documentation
 
+link server: https://marten-allowing-camel.ngrok-free.app
+
 1. Add new user `/api/adduser` { name, username, email, password }
 - `201` Status successful
 - `500` the server encountered an unexpected condition that prevented it from fulfilling the request
