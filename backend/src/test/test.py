@@ -4,9 +4,9 @@ BASE_URL = "http://localhost:8000/api/"
 
 def test_add_user():
   data = {
-    "name": "John",
-    "username": "john3322",
-    "email": "example@outlook.com",
+    "name": "Omard",
+    "username": "Omard",
+    "email": "omard@outlook.com",
     "password": "123123"
   }
   response = requests.post(BASE_URL+"adduser", json=data)
@@ -14,8 +14,11 @@ def test_add_user():
 
 def test_check_user():
   data = {
-    "email": "example@outlook.com",
-    "password": "123123"
+    "email": "test@example.com",
+    "password": "password123"
   }
   response = requests.post(BASE_URL+"checkuser", json=data)
   print(response.text)
+
+# test_add_user()
+test_check_user()

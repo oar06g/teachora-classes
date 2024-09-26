@@ -4,7 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +15,12 @@
     "express": "^4.21.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.25.4",
+    "@babel/register": "^7.24.6",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
+
