@@ -9,11 +9,11 @@ import bcrypt from "bcrypt";
 function generateTokens(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let token = '';
-  
+
   for (let i = 0; i < length; i++) {
     token += characters.charAt(Math.floor(Math.random() * characters.length));
   }
-  
+
   return token;
 }
 
@@ -24,10 +24,10 @@ function generateTokens(length) {
 async function checkTokenExist() {
   const randomToken = generateTokens(35);
   const sql = "SELECT * FROM users WHERE token = ?";
-  
+
   try {
     const [results] = await connect.execute(sql, [randomToken]);
-    
+
     if (results.length > 0) {
       console.log("Token exists, generating new one...");
       return checkTokenExist(); // Recursively generate a new token
@@ -48,7 +48,7 @@ async function checkTokenExist() {
  * @returns {Promise<void>}
  */
 export async function addNewUser(req, res) {
-  const { name, username, email, password } = req.body;
+  const { name, username, email, password, is_teacher } = req.body;
 
   // Ensure all required fields are provided
   if (!name || !username || !email || !password) {
@@ -64,11 +64,11 @@ export async function addNewUser(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // SQL query to insert user details into the database
-    const sql = `INSERT INTO users (name, username, email, password, token) VALUES (?, ?, ?, ?, ?)`;
-    const [result] = await connect.execute(sql, [name, username, email, hashedPassword, token]);
+    const sql = `INSERT INTO users (name, username, email, password, token, is_teacher) VALUES (?, ?, ?, ?, ?, ?)`;
+    const [result] = await connect.execute(sql, [name, username, email, hashedPassword, token, is_teacher]);
 
-    // Respond with success and user data
-    res.status(201).json({ id: result.insertId, name, username, email });
+    // Respond with success and user data (excluding password)
+    res.status(201).json({ id: result.insertId, name, username, email, token, is_teacher });
   } catch (err) {
     if (err.code === 'ER_DUP_ENTRY') {
       return res.status(400).json({ error: 'The username or email already exists' });
