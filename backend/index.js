@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import * as conf from "./src/config/config.js"
 import userRoutes from "./src/routes/userRoute.js";
+import studentsRoute from "./src/routes/studentsRoute.js";
 
 
 const app = express();
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
 
 
 app.use('/api', userRoutes);
+app.use('/api', studentsRoute);
 
 app.listen(conf.port, () => {
   console.log(`listen in http://localhost:${conf.port}`);

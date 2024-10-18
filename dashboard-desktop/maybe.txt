@@ -1,0 +1,5 @@
+# إعداد الأموال والحد الأقصى
+    self.money = 1000
+    self.max_money = 1000
+    self.progress = CircularProgress(self.money, self.max_money)
+    self.ui.horizontalLayout_5.addWidget(self.progress)

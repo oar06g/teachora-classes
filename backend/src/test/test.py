@@ -1,24 +1,31 @@
 import requests
 
-BASE_URL = "http://localhost:8000/api/"
+class Test:
+  def __init__(self, url: str = "http://localhost:8000/api/"):
+    self.url = url
+  
+  def test(self, endpoint: str, method: str = "POST", data: dict = None, params: dict = None):
+    def decorator():
+      if data:
+        response = requests.request(method, self.url + endpoint, json=data)
+      elif params:
+        response = requests.request(method, self.url + endpoint, params=params)
+      print(response.text)
+    return decorator()
+  
+# "https://marten-allowing-camel.ngrok-free.app/api/"
+test_obj = Test()
 
-def test_add_user():
-  data = {
-    "name": "Omard",
-    "username": "Omard",
-    "email": "omard@outlook.com",
-    "password": "123123"
-  }
-  response = requests.post(BASE_URL+"adduser", json=data)
-  print(response.text)
+data = {
+  "name": "omar",
+  "username": "asidj",
+  "email": "test1@outlook.com",
+  "password": "test"
+}
 
-def test_check_user():
-  data = {
-    "email": "test@example.com",
-    "password": "password123"
-  }
-  response = requests.post(BASE_URL+"checkuser", json=data)
-  print(response.text)
+test_obj.test(data=data, endpoint="adduser", method="POST")
+# test_obj.test(data, "checkUser")
 
-# test_add_user()
-test_check_user()
+# http://localhost:8000/api/academicStageAndLevel?grade=5&level="secondary"&id=1
+
+# test_obj.test('academicStageAndLevel', params={'grade': 5, 'level':'secondary', 'id':1})
