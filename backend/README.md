@@ -15,7 +15,18 @@ link server: https://marten-allowing-camel.ngrok-free.app
 - `200` the request was successful
 - `500` the server encountered an unexpected condition that prevented it from fulfilling the request
 
-3. Add Academic Stage And Level `/academicStageAndLevel?grade=5&level="secondary"&id=1` { grade, level, id }
+3. Add Academic Stage And Level `/asal?grade=5&level="secondary"&id=1` { grade, level, id }
 - `400` Bad request
 - `500` the server encountered an unexpected condition that prevented it from fulfilling the request
+- `200` request Ok
 
+4. Update Academic Stage And Level `/asalu?grade=5&level="secondary"&id=1` { grade, level, id }
+- `400` Bad request
+- `500` the server encountered an unexpected condition that prevented it from fulfilling the request
+- `200` request Ok
+
+
+5. Add Teacher `/adtchr?id=1&material="math"` { id, material }
+- `400` Bad request
+- `500` the server encountered an unexpected condition that prevented it from fulfilling the request
+- `200` Status Ok

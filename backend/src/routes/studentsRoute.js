@@ -1,8 +1,9 @@
 import express from "express";
-import {academicStageAndLevel} from "../controllers/studentsController.js";
+import {academicStageAndLevel, academicStageAndLevelUpdate} from "../controllers/studentsController.js";
 
 const router = express.Router();
 
-router.post("/academicStageAndLevel", academicStageAndLevel);
+router.post("/asal", academicStageAndLevel); // academicStageAndLevel
+router.post("/asalu", academicStageAndLevelUpdate); // academicStageAndLevelUpdate
 
 export default router;

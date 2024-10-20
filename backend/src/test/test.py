@@ -17,15 +17,12 @@ class Test:
 test_obj = Test()
 
 data = {
-  "name": "omar",
-  "username": "asidj",
-  "email": "test1@outlook.com",
-  "password": "test"
+  "id": 12,
+  "material": "math"
 }
 
-test_obj.test(data=data, endpoint="adduser", method="POST")
-# test_obj.test(data, "checkUser")
-
 # http://localhost:8000/api/academicStageAndLevel?grade=5&level="secondary"&id=1
+# http://localhost:8000/api/adtchr?id=12&material=math
 
-# test_obj.test('academicStageAndLevel', params={'grade': 5, 'level':'secondary', 'id':1})
+test_obj.test("adtchr", params={"id": 12, "material": "math"})
+# test_obj.test('asalu', params={'grade': 2, 'level':'secondary', 'id':1})
