@@ -25,8 +25,12 @@ link server: https://marten-allowing-camel.ngrok-free.app
 - `500` the server encountered an unexpected condition that prevented it from fulfilling the request
 - `200` request Ok
 
-
 5. Add Teacher `/adtchr?id=1&material="math"` { id, material }
 - `400` Bad request
 - `500` the server encountered an unexpected condition that prevented it from fulfilling the request
 - `200` Status Ok
+
+6. Add Courses `/adcourse?title=""&description=""&price=""&material=""&user_id=5` { title, description, price, material, id, level, grade }
+- `400` Bad request
+- `201` Status successful
+- `500` the server encountered an unexpected condition that prevented it from fulfilling the request

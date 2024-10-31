@@ -4,7 +4,7 @@ export async function addTeacher(req, res) {
   const id_user = req.query.id;
   const material = req.query.material;
 
-  if (!id || !material) {
+  if (!id_user || !material) {
     return res.status(400).json({ error: "Please fill all fields" });
   }
   try {

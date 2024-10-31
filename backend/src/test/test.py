@@ -14,15 +14,36 @@ class Test:
     return decorator()
   
 # "https://marten-allowing-camel.ngrok-free.app/api/"
-test_obj = Test()
+test_obj = Test("https://marten-allowing-camel.ngrok-free.app/api/")
 
-data = {
-  "id": 12,
+data_user = {
+  "name": "test1",
+  "username": "test1",
+  "email": "test1@test.com",
+  "password": "1231231"
+}
+
+data_check = {
+  "email": "test@test.com",
+  "password": "123123"
+}
+
+data_course = {
+  "title": "Math 2 sucndry",
+  "description": "description",
+  "price": 200,
+  "material": "Math",
+  "id": 14,
+  "level": "sucndry",
+  "grade": "2"
+}
+
+data_teacher = {
+  "id": 14,
   "material": "math"
 }
 
-# http://localhost:8000/api/academicStageAndLevel?grade=5&level="secondary"&id=1
-# http://localhost:8000/api/adtchr?id=12&material=math
 
-test_obj.test("adtchr", params={"id": 12, "material": "math"})
-# test_obj.test('asalu', params={'grade': 2, 'level':'secondary', 'id':1})
+# http://localhost:8000/api/adcourse?title="Math"&description="testing or testing"&price=200&material="math"&id=14
+# test_obj.test('adtchr', params=data_teacher)
+test_obj.test('adduser', data=data_user)

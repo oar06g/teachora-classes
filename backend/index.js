@@ -5,7 +5,9 @@ import { fileURLToPath } from 'url';
 import * as conf from "./src/config/config.js"
 import userRoutes from "./src/routes/usersRoute.js";
 import studentsRoute from "./src/routes/studentsRoute.js";
-import teachersRoute from "./src/routes/teachersRoute.js"
+import teachersRoute from "./src/routes/teachersRoute.js";
+import coursesRoute from "./src/routes/coursesRoute.js";
+
 
 const app = express();
 app.use(express.json())
@@ -24,6 +26,7 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/api', userRoutes);
 app.use('/api', studentsRoute);
 app.use('/api', teachersRoute);
+app.use('/api', coursesRoute);
 
 app.listen(conf.port, () => {
   console.log(`listen in http://localhost:${conf.port}`);
