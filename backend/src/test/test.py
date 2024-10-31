@@ -14,7 +14,7 @@ class Test:
     return decorator()
   
 # "https://marten-allowing-camel.ngrok-free.app/api/"
-test_obj = Test("https://marten-allowing-camel.ngrok-free.app/api/")
+test_obj = Test()
 
 data_user = {
   "name": "test1",
@@ -46,4 +46,9 @@ data_teacher = {
 
 # http://localhost:8000/api/adcourse?title="Math"&description="testing or testing"&price=200&material="math"&id=14
 # test_obj.test('adtchr', params=data_teacher)
-test_obj.test('adduser', data=data_user)
+# test_obj.test('adduser', data=data_user)
+test_obj.test('getcourse', method="GET", params={
+  "grade": 2,
+  "level": "sucndry",
+  "material": "Math",
+})

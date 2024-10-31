@@ -52,10 +52,22 @@ export async function getCourses(req, res) {
   if (!grade || !level || !material) {
     return res.status(400).json({ error: "Please fill all fields" });
   }
+  
   try {
-    const getAllCoursesByMaterialSql = "";
+    const getAllCoursesByMaterialSql = `
+      SELECT * FROM courses 
+      WHERE grade = ? AND level = ? AND material = ?`;
+    
+    
+    const [courses] = await connect.execute(getAllCoursesByMaterialSql, [grade, level, material]);
+
+    if (courses.length === 0) {
+      return res.status(404).json({ message: "No courses found" });
+    }
+
+    res.status(200).json({ courses });
   } catch (error) {
-    console.error("Error updating user:", error);
-    res.status(500).json({ error: "Error updating data in the database" });
+    console.error("Error getting courses:", error);
+    res.status(500).json({ error: "Error retrieving data from the database" });
   }
 }

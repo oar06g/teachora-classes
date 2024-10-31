@@ -34,3 +34,9 @@ link server: https://marten-allowing-camel.ngrok-free.app
 - `400` Bad request
 - `201` Status successful
 - `500` the server encountered an unexpected condition that prevented it from fulfilling the request
+
+7. Get Courses  `/getcourse?grade=""&level=""&material=""` { grade, level, material }
+- `400` Bad request
+- `500` the server encountered an unexpected condition that prevented it from fulfilling the request
+- `404`  Not found
+- `201` Status successful Created 
