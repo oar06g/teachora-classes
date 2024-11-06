@@ -60,6 +60,8 @@ export async function getCourses(req, res) {
     
     
     const [courses] = await connect.execute(getAllCoursesByMaterialSql, [grade, level, material]);
+    console.log("Query Params:", courses);
+
 
     if (courses.length === 0) {
       return res.status(404).json({ message: "No courses found" });

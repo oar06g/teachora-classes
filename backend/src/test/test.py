@@ -29,13 +29,13 @@ data_check = {
 }
 
 data_course = {
-  "title": "Math 2 sucndry",
-  "description": "description",
+  "title": "كورس لغة عربية",
+  "description": "افضل كورس للغة العربية",
   "price": 200,
-  "material": "Math",
+  "material": "arabic",
   "id": 14,
-  "level": "sucndry",
-  "grade": "2"
+  "level": "secundry",
+  "grade": "one"
 }
 
 data_teacher = {
@@ -47,8 +47,11 @@ data_teacher = {
 # http://localhost:8000/api/adcourse?title="Math"&description="testing or testing"&price=200&material="math"&id=14
 # test_obj.test('adtchr', params=data_teacher)
 # test_obj.test('adduser', data=data_user)
+
+# test_obj.test("adcourse", params=data_course)
+
 test_obj.test('getcourse', method="GET", params={
-  "grade": 2,
-  "level": "sucndry",
-  "material": "Math",
+  "level": "ابتدائي",
+  "grade": "الصف الأول",
+  "material": "العربية"
 })
