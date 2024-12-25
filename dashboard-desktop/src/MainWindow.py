@@ -10,7 +10,7 @@ from src.components.progress import CircularProgress
 from src.components.subscription_widget import SubscriptionWidget
 from src.utils.server import Server
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://127.0.0.1:8000"
 CHECK_ADMIN = "/api/dashboard/checkadmin"
 GET_COUNT_TEACHERS = "/api/dashboard/getteachercount"
 GET_COUNT_STUDENT = "/api/dashboard/getstudentcount"
@@ -105,7 +105,6 @@ class MainWindow(QMainWindow):
 
     async def perform_login(self, data: dict):
         server_is_up = await self.check_server_work(BASE_URL)
-          
         if server_is_up:
             check = await self.check_admin(data, url=BASE_URL + CHECK_ADMIN)
             if check:

@@ -1,7 +1,7 @@
 import aiohttp
 import asyncio
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://127.0.0.1:8000"
 CHECK_ADMIN = "/api/dashboard/checkadmin"
 GET_COUNT_TEACHERS = "/api/dashboard/getTeacherCount"
 
